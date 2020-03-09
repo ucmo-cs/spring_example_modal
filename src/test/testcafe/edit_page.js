@@ -5,7 +5,7 @@ fixture `Car Fixture`
 
 test('Edit Test', async t => {
     await t
-        .click(Selector('td').withText('Edit').find('.btn.btn-success').nth(1))
+        .click(Selector('td').withText('Edit').find('.btn.btn-primary').nth(0))
         .selectText(Selector('[name="make"].form-control'))
         .typeText(Selector('[name="make"].form-control'), 'DMC')
         .selectText(Selector('[name="model"].form-control'))
@@ -35,7 +35,7 @@ test('Add Test', async t => {
 
 test('Delete Test', async t => {
     await t
-        .click(Selector('td').withText('Delete').nth(-1).find('.btn.btn-success').nth(0))
+        .click(Selector('td').withText('Delete').nth(-1).find('.btn.btn-dark').nth(0))
         .expect(Selector('tr').nth(-1).child().nextSibling(0).innerText).notEql('Pontiac')
         .expect(Selector('tr').nth(-1).child().nextSibling(1).innerText).notEql('TransAm')
         .expect(Selector('tr').nth(-1).child().nextSibling(2).innerText).notEql('1993');
