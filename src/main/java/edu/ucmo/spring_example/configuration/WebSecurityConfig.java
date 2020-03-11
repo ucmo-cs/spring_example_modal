@@ -35,6 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/cars/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/cars").access("hasAnyRole('ADMIN', 'USER')")
                 .antMatchers(HttpMethod.PUT, "/cars/**").access("hasAnyRole('ADMIN', 'USER')")
+                .antMatchers("/users").hasAuthority("ADMIN")
                 .and()
                 .formLogin()
                 .usernameParameter("user_name")

@@ -1,5 +1,7 @@
 package edu.ucmo.spring_example.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -19,7 +21,8 @@ public class User {
     private String email;
 
     @Column(name = "password")
-     private String password;
+    @JsonIgnore
+    private String password;
 
     @Column(name = "first_name")
     private String firstName;
