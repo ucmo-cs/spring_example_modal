@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @Configuration
 @EnableWebSecurity
@@ -33,8 +34,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/cars").permitAll()
                 .antMatchers("/cars/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/cars").access("hasAnyRole('ADMIN', 'USER')")
-                .antMatchers(HttpMethod.PUT, "/cars/**").access("hasAnyRole('ADMIN', 'USER')")
+                .antMatchers(HttpMethod.POST, "/cars").permitAll()
+                .antMatchers(HttpMethod.PUT, "/cars/**").permitAll()
                 .antMatchers("/users").hasAuthority("ADMIN")
                 .and()
                 .formLogin()
@@ -47,5 +48,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID")
                 .permitAll();
+
+    http
+            .csrf()
+            .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+
     }
 }

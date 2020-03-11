@@ -43086,6 +43086,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var CAR_API_BASE_URL = 'http://localhost:8080/cars';
+var CSRF_TOKEN = document.cookie.match(new RegExp("XSRF-TOKEN=([^;]+)"))[1];
+var instance = axios__WEBPACK_IMPORTED_MODULE_2___default.a.create({
+  headers: {
+    "X-XSRF-TOKEN": CSRF_TOKEN
+  }
+});
 
 var ApiService =
 /*#__PURE__*/
@@ -43097,27 +43103,27 @@ function () {
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(ApiService, [{
     key: "fetchCars",
     value: function fetchCars() {
-      return axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(CAR_API_BASE_URL);
+      return instance.get(CAR_API_BASE_URL);
     }
   }, {
     key: "fetchCarById",
     value: function fetchCarById(carId) {
-      return axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(CAR_API_BASE_URL + '/' + carId);
+      return instance.get(CAR_API_BASE_URL + '/' + carId);
     }
   }, {
     key: "deleteCar",
     value: function deleteCar(carId) {
-      return axios__WEBPACK_IMPORTED_MODULE_2___default.a["delete"](CAR_API_BASE_URL + '/' + carId);
+      return instance["delete"](CAR_API_BASE_URL + '/' + carId);
     }
   }, {
     key: "addCar",
     value: function addCar(car) {
-      return axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + CAR_API_BASE_URL, car);
+      return instance.post("" + CAR_API_BASE_URL, car);
     }
   }, {
     key: "editCar",
     value: function editCar(car) {
-      return axios__WEBPACK_IMPORTED_MODULE_2___default.a.put(CAR_API_BASE_URL + '/' + car.id, car);
+      return instance.put(CAR_API_BASE_URL + '/' + car.id, car);
     }
   }]);
 
