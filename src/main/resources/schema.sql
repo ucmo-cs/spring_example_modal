@@ -3,5 +3,5 @@ CREATE TABLE car (
   id     SERIAL PRIMARY KEY,
   make   VARCHAR(50) NOT NULL,
   model  VARCHAR(50) NOT NULL,
-  year   INT         NOT NULL,
+  year   INT         NOT NULLs
 );
