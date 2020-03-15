@@ -4,5 +4,4 @@ CREATE TABLE car (
   make   VARCHAR(50) NOT NULL,
   model  VARCHAR(50) NOT NULL,
   year   INT         NOT NULL,
-  PRIMARY KEY (id)
 );
