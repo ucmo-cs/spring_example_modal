@@ -68,7 +68,7 @@
 				<version>1.10.4</version>
 				<configuration>
 					<installDirectory>target</installDirectory>
-					<nodeVersion>v11.5.0</nodeVersion>
+					<nodeVersion>v14.13.0</nodeVersion>
 				</configuration>
 				<executions>
 					<execution>
