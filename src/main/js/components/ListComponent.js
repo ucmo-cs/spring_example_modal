@@ -33,10 +33,6 @@ function ListComponent(props) {
         setCars(cars)
     }
 
-    const reloadCarList = (cars) => {
-        setCars(cars);
-    }
-    
     const deleteCar = (carId) => {
         ApiService.deleteCar(carId)
             .then(res => {
