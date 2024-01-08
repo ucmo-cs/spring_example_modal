@@ -25,9 +25,13 @@ jobs:
       with:
         java-version: 1.8
     - name: Build project with Maven
-      run: mvn -B -f pom.xml verify
+      env:
+        JASYPT_PW: ${{ secrets.JASYPT_PW }}
+      run: mvn -B -f pom.xml -Djasypt.encryptor.password=$JASYPT_PW verify
     - name: Start Spring Boot server
-      run: mvn -B -f pom.xml spring-boot:start
+      env:
+        JASYPT_PW: ${{ secrets.JASYPT_PW }}
+      run: mvn -B -f pom.xml -Djasypt.encryptor.password=$JASYPT_PW spring-boot:start
     - name: Run Newman tests
       run: target/node/node node_modules/newman/bin/newman.js run src/test/postman/SpringExampleCollection.postman_collection.json
     - name: Run TestCafe tests
