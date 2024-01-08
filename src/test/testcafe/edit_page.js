@@ -13,9 +13,9 @@ test('Edit Test', async t => {
         .selectText(Selector('[name="year"].form-control'))
         .typeText(Selector('[name="year"].form-control'), '1981')
         .click(Selector('button').withText('Save'))
-        .expect(Selector('tr').nth(1).child().nextSibling(0).innerText).eql('DMC')
-        .expect(Selector('tr').nth(1).child().nextSibling(1).innerText).eql('DeLorean')
-        .expect(Selector('tr').nth(1).child().nextSibling(2).innerText).eql('1981');
+        .expect(Selector('tr').nth(2).child().nextSibling(0).innerText).eql('DMC')
+        .expect(Selector('tr').nth(2).child().nextSibling(1).innerText).eql('DeLorean')
+        .expect(Selector('tr').nth(2).child().nextSibling(2).innerText).eql('1981');
 });
 
 test('Add Test', async t => {
@@ -35,7 +35,7 @@ test('Add Test', async t => {
 
 test('Delete Test', async t => {
     await t
-        .click(Selector('button').withText('Delete').nth(-1))
+        .click(Selector('button').withText('Delete').nth(-1).nth(0))
         .expect(Selector('tr').nth(-1).child().nextSibling(0).innerText).notEql('Pontiac')
         .expect(Selector('tr').nth(-1).child().nextSibling(1).innerText).notEql('TransAm')
         .expect(Selector('tr').nth(-1).child().nextSibling(2).innerText).notEql('1993');
