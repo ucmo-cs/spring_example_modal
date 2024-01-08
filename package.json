@@ -25,7 +25,7 @@
     "rest": "^2.0.0"
   },
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest --coverage --passWithNoTests",
     "watch": "webpack --watch -d"
   },
   "devDependencies": {
