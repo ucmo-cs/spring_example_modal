@@ -1,8 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import ListComponent from "./components/ListComponent";
-import AddComponent from "./components/AddComponent";
-import EditComponent from "./components/EditComponent";
 const ReactDOM = require('react-dom');
 
 function App() {
@@ -15,7 +12,10 @@ function App() {
 
 export default App;
 
-ReactDOM.render(
-	<App />,
-	document.getElementById('react')
-)
+const root = ReactDOM.createRoot(document.getElementById("react"));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+

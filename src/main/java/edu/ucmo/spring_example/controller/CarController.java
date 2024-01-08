@@ -35,9 +35,9 @@ public class CarController {
         return optionalCar.isPresent() ? optionalCar.get() : null;
     }
 
-    @GetMapping("/make/{make}/{model}")
-    public List<Car> getMake(@PathVariable String make, @PathVariable String model){
-        return carDao.findByMakeAndModel(make, model);
+    @GetMapping("/make/{make}")
+    public List<Car> getMake(@PathVariable String make){
+        return carDao.findByMake(make);
     }
 
     @PutMapping("/{id}")

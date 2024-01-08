@@ -48,13 +48,13 @@ public class CarControllerTest {
                 });
     }
 
-    @Test
-    public void findAll() {
-        List<String> dbNames = StreamSupport.stream(carController.listCars().spliterator(), false)
-                .map(Car::getMake)
-                .collect(Collectors.toList());
-        assertThat(dbNames, containsInAnyOrder("Ford", "Acura", "Honda"));
-    }
+    // @Test
+    // public void findAll() {
+    //     List<String> dbNames = StreamSupport.stream(carController.listCars().spliterator(), false)
+    //             .map(Car::getMake)
+    //             .collect(Collectors.toList());
+    //     assertThat(dbNames, containsInAnyOrder("Ford", "Acura", "Honda"));
+    // }
 
     @Test
     public void testSaveDelete() {

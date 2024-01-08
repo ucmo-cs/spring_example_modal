@@ -8,5 +8,5 @@ import java.util.List;
 @Repository
 public interface CarDao extends CrudRepository<Car, Integer> {
 
-    List<Car> findByMakeAndModel(String make, String model);
+    List<Car> findByMake(String make);
 }
