@@ -1210,7 +1210,7 @@ var AddComponent = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_1__.forwardRef
     _services_ApiService__WEBPACK_IMPORTED_MODULE_2__["default"].addCar(saveCar).then(function () {
       return _services_ApiService__WEBPACK_IMPORTED_MODULE_2__["default"].fetchCars();
     }).then(function (res) {
-      reloadCarList(res.data);
+      props.reloadCarList(res.data);
       close();
     });
   };
@@ -1352,14 +1352,15 @@ var EditComponent = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_1__.forwardRe
   var saveCar = function saveCar(e) {
     e.preventDefault();
     var saveCar = {
+      id: id,
       make: make,
       model: model,
       year: year
     };
-    _services_ApiService__WEBPACK_IMPORTED_MODULE_2__["default"].addCar(saveCar).then(function () {
+    _services_ApiService__WEBPACK_IMPORTED_MODULE_2__["default"].editCar(saveCar).then(function () {
       return _services_ApiService__WEBPACK_IMPORTED_MODULE_2__["default"].fetchCars();
     }).then(function (res) {
-      reloadCarList(res.data);
+      props.reloadCarList(res.data);
       close();
     });
   };
@@ -1444,12 +1445,6 @@ var style = {
   color: 'red',
   margin: '10px'
 };
-var addComponent = React.forwardRef(function (reloadCarList, ref) {
-  return /*#__PURE__*/React.createElement(_AddComponent__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    reloadCarList: reloadCarList,
-    ref: addComponent
-  });
-});
 function ListComponent(props) {
   var addComponent = (0,react__WEBPACK_IMPORTED_MODULE_4__.useRef)();
   var editComponent = (0,react__WEBPACK_IMPORTED_MODULE_4__.useRef)();

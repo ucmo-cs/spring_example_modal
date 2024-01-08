@@ -14,10 +14,6 @@ const style = {
     margin: '10px'
 }
 
-const addComponent = React.forwardRef((reloadCarList, ref) => (
-    <AddComponent reloadCarList={reloadCarList} ref={addComponent} />
-));
-
 function ListComponent(props) {
 
     const addComponent = useRef();
@@ -37,10 +33,6 @@ function ListComponent(props) {
         setCars(cars)
     }
 
-    const reloadCarList = (cars) => {
-        setCars(cars);
-    }
-    
     const deleteCar = (carId) => {
         ApiService.deleteCar(carId)
             .then(res => {

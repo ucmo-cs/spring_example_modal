@@ -41,11 +41,11 @@ const EditComponent = forwardRef((props, ref) => {
 
     const saveCar = (e) => {
         e.preventDefault();
-        let saveCar = {make: make, model: model, year: year};
-        ApiService.addCar(saveCar)
+        let saveCar = {id: id, make: make, model: model, year: year};
+        ApiService.editCar(saveCar)
             .then(() => ApiService.fetchCars())
             .then(res => {
-                reloadCarList(res.data);
+                props.reloadCarList(res.data);
                 close();
             });
      }
