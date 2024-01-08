@@ -22,7 +22,7 @@ const AddComponent = forwardRef((props, ref) => {
         ApiService.addCar(saveCar)
             .then(() => ApiService.fetchCars())
             .then(res => {
-                reloadCarList(res.data);
+                props.reloadCarList(res.data);
                 close();
             });
      }

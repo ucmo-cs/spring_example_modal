@@ -14,10 +14,6 @@ const style = {
     margin: '10px'
 }
 
-const addComponent = React.forwardRef((reloadCarList, ref) => (
-    <AddComponent reloadCarList={reloadCarList} ref={addComponent} />
-));
-
 function ListComponent(props) {
 
     const addComponent = useRef();
